@@ -37,10 +37,7 @@ def main():
     # Buat plot menggunakan Seaborn
     fig, ax = plt.subplots(figsize=(10, 6))
     ax = sns.barplot(x=frekuensi_produk.values, y=frekuensi_produk.index, palette="viridis")
-    plt.title('10 Produk apa yang paling diminati oleh pelanggan')
-    plt.xlabel('Frekuensi')
-    plt.ylabel('Nama Produk')
-    plt.tight_layout()
+    
     
     # Tampilkan plot menggunakan st.pyplot() dengan meneruskan objek figur
     st.pyplot(fig)
