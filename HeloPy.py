@@ -65,10 +65,7 @@ def show_delivery_status():
 def show_product_analysis():
     st.title("Product Analysis")
     
-    st.write("DataFrame Pelanggan:")
-    
-    produk_terpopuler = find_most_popular_product(customers_df)
-    
+    st.write("Produk Terpopuler")
     st.write("Produk Terpopuler")
     st.write(produk_terpopuler)
     
