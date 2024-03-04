@@ -66,7 +66,6 @@ def show_product_analysis():
     st.title("Product Analysis")
     
     st.write("DataFrame Pelanggan:")
-    st.dataframe(customers_df)
     
     produk_terpopuler = find_most_popular_product(customers_df)
     
