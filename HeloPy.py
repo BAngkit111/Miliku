@@ -4,7 +4,7 @@ import seaborn as sns
 import streamlit as st
 
 # Membaca dataset
-customers_df = pd.read_excel("products_dataset-checkpoint.csv")
+customers_df = pd.read_csv("products_dataset-checkpoint.csv")
 orders_df = pd.read_csv("orders_dataset-checkpoint.csv")
 
 # Mengatur gaya visualisasi
@@ -30,10 +30,11 @@ def count_delayed_orders(df):
 # Fungsi untuk menampilkan dashboard
 def show_dashboard():
     st.title("Dashboard")
-    st.subheader("Statistics:")
-    st.markdown(f"**Total Orders:** {len(orders_df)}")
-    st.markdown(f"**Total Revenue:** $5000") 
-    st.markdown(f"**Most Popular Product:** {find_most_popular_product(customers_df).index[0]}")
+    st.sidebar.title("Dashboard")  
+    st.sidebar.subheader("Statistics:")  
+    st.sidebar.markdown(f"**Total Orders:** {len(orders_df)}")
+    st.sidebar.markdown(f"**Total Revenue:** $5000")  
+    st.sidebar.markdown(f"**Most Popular Product:** {find_most_popular_product(customers_df).index[0]}")
     
     st.subheader("Filters:")
     start_date = st.date_input("Start date")
