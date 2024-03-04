@@ -4,7 +4,7 @@ import seaborn as sns
 import streamlit as st
 
 # Membaca dataset
-customers_df = pd.read_excel("products_dataset.xls")
+customers_df = pd.read_excel("products_dataset-checkpoint.csv")
 orders_df = pd.read_csv("orders_dataset-checkpoint.csv")
 
 # Mengatur gaya visualisasi
