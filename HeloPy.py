@@ -4,17 +4,16 @@ import seaborn as sns
 import streamlit as st
 
 # Membaca dataset
-customers_df = pd.read_csv("products_dataset-checkpoint.csv")
+order_review = pd.read_csv("order_reviews_dataset-checkpoint.csv")
 orders_df = pd.read_csv("orders_dataset-checkpoint.csv")
 
 # Mengatur gaya visualisasi
 sns.set(style='dark')
 
-# Fungsi untuk mencari produk paling populer
-def find_most_popular_product(df):
-    frekuensi_produk = df['product_category_name'].value_counts()
-    produk_terpopuler = frekuensi_produk.head(1)  # Ambil 10 nama teratas
-    return produk_terpopuler
+# Fungsi untuk mencari rata-rata review produk
+def find_average_review(df):
+    rata_rata_review = df['review_score'].mean()
+    return rata_rata_review
 
 # Fungsi untuk menghitung keterlambatan pesanan
 def count_delayed_orders(df):
@@ -34,7 +33,7 @@ def show_dashboard():
     st.sidebar.subheader("Statistics:")  
     st.sidebar.markdown(f"**Total Orders:** {len(orders_df)}")
     st.sidebar.markdown(f"**Total Revenue:** $5000")  
-    st.sidebar.markdown(f"**Most Popular Product:** {find_most_popular_product(customers_df).index[0]}")
+    st.sidebar.markdown(f"**Average Review Score:** {find_average_review(order_review)}")
     
     st.subheader("Filters:")
     start_date = st.date_input("Start date")
@@ -65,22 +64,19 @@ def show_delivery_status():
 def show_product_analysis():
     st.title("Product Analysis")
     
-    st.write("Produk Terpopuler")
-    st.write("Produk Terpopuler")
-    st.write(produk_terpopuler)
+    st.write("DataFrame Pelanggan:")
     
-    st.subheader("10 Produk apa yang paling diminati oleh pelanggan:")
+    st.subheader("Average Review Score:")
+    rata_rata_review = find_average_review(order_review)
+    st.write(rata_rata_review)
     
-    frekuensi_produk = customers_df['product_category_name'].value_counts().head(10)
-    frekuensi_produk = frekuensi_produk.sort_values(ascending=True)
-    
-    fig, ax = plt.subplots(figsize=(10, 6))
-    ax = sns.barplot(x=frekuensi_produk.values, y=frekuensi_produk.index, palette="viridis")
-    plt.title('10 Produk apa yang paling diminati oleh pelanggan')
-    plt.xlabel('Frekuensi')
-    plt.ylabel('Nama Produk')
-    plt.tight_layout()
-    
+    st.subheader("Visualisasi Rata-rata Nilai Review:")
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.bar('Rata-rata', rata_rata_review, color='green')
+    ax.set_title('Rata-rata Nilai Review')
+    ax.set_xlabel('Review')
+    ax.set_ylabel('Nilai Rata-rata')
+    ax.set_ylim(0, 5)  
     st.pyplot(fig)
 
 # Memanggil fungsi-fungsi untuk menampilkan konten
