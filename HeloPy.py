@@ -32,7 +32,7 @@ def show_dashboard():
     st.title("Dashboard")
     st.subheader("Statistics:")
     st.markdown(f"**Total Orders:** {len(orders_df)}")
-    st.markdown(f"**Total Revenue:** $5000")  # Anda dapat mengisi data total pendapatan sesuai kebutuhan
+    st.markdown(f"**Total Revenue:** $5000") 
     st.markdown(f"**Most Popular Product:** {find_most_popular_product(customers_df).index[0]}")
     
     st.subheader("Filters:")
