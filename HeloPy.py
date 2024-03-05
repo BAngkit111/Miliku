@@ -4,7 +4,7 @@ import seaborn as sns
 import streamlit as st
 
 # Membaca dataset
-order_review = pd.read_csv("order_reviews_dataset-checkpoint.csv")
+order_review = pd.read_csv("https://raw.githubusercontent.com/BAngkit111/Dataset/main/order_reviews_dataset.csv")
 orders_df = pd.read_csv("https://raw.githubusercontent.com/BAngkit111/Dataset/main/orders_dataset.csv")
 
 # Mengatur gaya visualisasi
