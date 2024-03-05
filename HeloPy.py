@@ -48,7 +48,7 @@ def show_delivery_status():
     jumlah_keterlambatan = count_delayed_orders(orders_df)
     
     st.title("Delivery Order Status")
-    st.write("Jumlah pesanan yang mengalami keterlambatan:", jumlah_keterlambatan)
+    st.write("Jumlah pesanan yang mengalami keterlambatan")
     
     # Visualisasi data
     st.subheader("Visualisasi Data keterlambatan pengiriman")
