@@ -5,7 +5,7 @@ import streamlit as st
 
 # Membaca dataset
 order_review = pd.read_csv("order_reviews_dataset-checkpoint.csv")
-orders_df = pd.read_csv("orders_dataset-checkpoint.csv")
+orders_df = pd.read_csv("https://raw.githubusercontent.com/BAngkit111/Dataset/main/orders_dataset.csv")
 
 # Mengatur gaya visualisasi
 sns.set(style='dark')
