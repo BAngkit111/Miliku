@@ -63,9 +63,6 @@ def show_delivery_status():
 # Fungsi untuk menampilkan analisis produk
 def show_product_analysis():
     st.title("Product Analysis")
-    
-    st.write("DataFrame Pelanggan:")
-    
     st.subheader("Average Review Score:")
     rata_rata_review = find_average_review(order_review)
     st.write(rata_rata_review)
